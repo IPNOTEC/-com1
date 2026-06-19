@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<title>IPNOTEC HOTSPOT · www.ipnotec.com</title>
+<title>IPNOTEC THOUGHT SPOT · www.ipnotec.com</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
@@ -344,26 +344,39 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 @keyframes ipnPulse{0%,100%{opacity:1;}50%{opacity:.5;}}
 .btn-dd-exit{min-height:28px;padding:0 8px;background:transparent;border:1px solid #1a2a1a;color:#2a4a2a;font-family:var(--head);font-size:.45rem;letter-spacing:.08em;cursor:pointer;transition:all .2s;}
 .btn-dd-exit:hover{border-color:var(--r);color:var(--r);}
-/* 16:9 main area */
-.dsp-main{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:#0a0a0a;overflow:hidden;width:100%;aspect-ratio:16/9;margin:auto 0;flex-shrink:0;}
-.dsp-panel{background:#010101;display:flex;flex-direction:column;overflow:hidden;padding:10px 12px;}
+/* DD main area — chat takes the FULL screen, no more squeezed side panel */
+.dsp-main{display:flex;flex-direction:column;background:#000;overflow:hidden;width:100%;flex:1;min-height:0;}
+.dsp-panel{background:#000;display:flex;flex-direction:column;overflow:hidden;padding:10px 14px;flex:1;min-height:0;}
 .dsp-panel-lbl{font-size:.45rem;letter-spacing:.18em;color:#4a8a4a;text-transform:uppercase;margin-bottom:6px;flex-shrink:0;}
-.msg-list{flex:1;display:flex;flex-direction:column;gap:2px;overflow:hidden;justify-content:flex-end;}
-.dd-msg{display:flex;align-items:center;gap:6px;padding:5px 6px;animation:msgSlide .3s ease both;flex-shrink:0;}
+.msg-list{flex:1;display:flex;flex-direction:column;gap:3px;overflow:hidden;justify-content:flex-end;}
+.dd-msg{display:flex;align-items:center;gap:8px;padding:7px 8px;animation:msgSlide .3s ease both;flex-shrink:0;}
 @keyframes msgSlide{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:translateX(0);}}
-.dd-sq{width:8px;height:8px;flex-shrink:0;}
-.dd-id{font-size:.6rem;font-weight:700;letter-spacing:.05em;flex-shrink:0;min-width:36px;}
-.dd-arr{font-size:.4rem;flex-shrink:0;}
-.dd-txt{font-size:.6rem;flex:1;line-height:1.4;letter-spacing:.02em;}
-.dd-ts{font-size:.45rem;letter-spacing:.05em;flex-shrink:0;opacity:.45;}
-.right-panel{border-left:1px solid #0a0a0a;gap:8px;}
-.node-dots-dd{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:2px;}
-.nd-dd{width:12px;height:12px;flex-shrink:0;}
-.dd-ssid-wrap{border:1px solid #1a3a1a;background:rgba(57,255,20,.015);padding:8px;text-align:center;margin-top:4px;}
-.dd-ssid-lbl-s{font-size:.35rem;letter-spacing:.12em;color:#4a9a4a;text-transform:uppercase;margin-bottom:2px;}
-.dd-ssid-name-big{font-family:var(--head);font-size:.6rem;font-weight:900;color:var(--g);text-shadow:0 0 8px var(--g);letter-spacing:.06em;word-break:break-all;line-height:1.2;margin-bottom:4px;}
-.dd-url-txt{font-family:var(--head);font-size:.5rem;color:var(--b);text-shadow:0 0 8px var(--b);letter-spacing:.06em;text-align:center;margin-top:3px;}
-.node-count-dd{font-family:var(--head);font-size:.45rem;letter-spacing:.08em;color:#7a5a00;text-align:center;margin-top:4px;}
+.dd-sq{width:9px;height:9px;flex-shrink:0;}
+.dd-id{font-size:.7rem;font-weight:700;letter-spacing:.05em;flex-shrink:0;min-width:42px;}
+.dd-arr{font-size:.45rem;flex-shrink:0;}
+.dd-txt{font-size:.7rem;flex:1;line-height:1.45;letter-spacing:.02em;}
+.dd-ts{font-size:.5rem;letter-spacing:.05em;flex-shrink:0;opacity:.45;}
+/* Slim top strip — nodes + SSID, no longer a squeezed side column */
+.dsp-substrip{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:7px 14px;border-bottom:1px solid #0a0a0a;background:#010101;}
+.node-dots-dd{display:flex;gap:4px;flex-wrap:wrap;flex-shrink:0;}
+.nd-dd{width:10px;height:10px;flex-shrink:0;}
+.dsp-substrip-sep{width:1px;height:16px;background:#1a1a1a;flex-shrink:0;}
+.dd-ssid-inline{display:flex;align-items:center;gap:6px;flex:1;min-width:0;overflow:hidden;}
+.dd-ssid-lbl-s{font-size:.4rem;letter-spacing:.12em;color:#4a9a4a;text-transform:uppercase;flex-shrink:0;}
+.dd-ssid-name-big{font-family:var(--head);font-size:.65rem;font-weight:900;color:var(--g);text-shadow:0 0 8px var(--g);letter-spacing:.05em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dd-url-txt{font-family:var(--head);font-size:.45rem;color:var(--b);text-shadow:0 0 6px var(--b);letter-spacing:.05em;flex-shrink:0;}
+.node-count-dd{font-family:var(--head);font-size:.45rem;letter-spacing:.08em;color:#7a5a00;flex-shrink:0;}
+/* Minimal "listening" music-bar animation — replaces the old cramped side panel */
+.listen-bar{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 14px;border-top:1px solid #0a0a0a;background:#010101;}
+.listen-bars{display:flex;align-items:center;gap:3px;height:16px;}
+.listen-bars span{display:block;width:3px;border-radius:1px;background:var(--g);box-shadow:0 0 4px var(--g);animation:barBounce 1.1s ease-in-out infinite;}
+.listen-bars span:nth-child(1){animation-delay:0s;}
+.listen-bars span:nth-child(2){animation-delay:.12s;}
+.listen-bars span:nth-child(3){animation-delay:.24s;}
+.listen-bars span:nth-child(4){animation-delay:.36s;}
+.listen-bars span:nth-child(5){animation-delay:.48s;}
+@keyframes barBounce{0%,100%{height:4px;opacity:.5;}50%{height:16px;opacity:1;}}
+.listen-lbl{font-family:var(--head);font-size:.4rem;letter-spacing:.16em;color:#3a6a3a;text-transform:uppercase;}
 .dsp-ticker{flex-shrink:0;overflow:hidden;border-top:1px solid #0a0a0a;padding:3px 0;background:#010101;}
 .dsp-footer{height:24px;flex-shrink:0;background:#010101;border-top:1px solid #0a0a0a;display:flex;align-items:center;justify-content:space-between;padding:0 12px;}
 .dsp-ft-l{font-size:.4rem;color:#5a7a5a;letter-spacing:.08em;}
@@ -667,7 +680,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 
   <!-- BLINKER STRIP -->
   <div class="blink-strip">
-    <div class="bp"><div class="bdot bdot-g" id="bdot-g"></div><div class="bp-txt" id="bp-txt-1">HOTSPOT · READY</div></div>
+    <div class="bp"><div class="bdot bdot-g" id="bdot-g"></div><div class="bp-txt" id="bp-txt-1">THOUGHT SPOT · READY</div></div>
     <div class="bp"><div class="bdot bdot-o"></div><div class="bp-txt" id="bp-txt-2">DATA · STANDBY</div></div>
   </div>
 
@@ -686,8 +699,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
           <div class="eye er" style="width:48px;height:48px;"><div class="eye-core" style="width:20px;height:20px;"><div class="pupil pupil-g" style="width:8px;height:8px;"></div></div></div>
         </div>
         <div style="text-align:center;margin-bottom:18px;">
-          <div style="font-size:.6rem;letter-spacing:.2em;color:#666;text-transform:uppercase;margin-bottom:4px;">VERIFIED HOTSPOT NETWORK · INDIA</div>
-          <div style="font-size:.7rem;letter-spacing:.06em;color:#888;line-height:1.8;">Your Identity · Your Signal · Your IPNOTEC Hotspot</div>
+          <div style="font-size:.6rem;letter-spacing:.2em;color:#666;text-transform:uppercase;margin-bottom:4px;">VERIFIED THOUGHT SPOT NETWORK · INDIA</div>
+          <div style="font-size:.7rem;letter-spacing:.06em;color:#888;line-height:1.8;">Converting Your Phone Hotspot Into a Thought Spot</div>
+          <div style="font-size:.55rem;letter-spacing:.05em;color:#4a7a4a;line-height:1.7;margin-top:4px;">Organised Communication · Instant AI Summary</div>
         </div>
         <div style="height:1px;background:#0d0d0d;margin-bottom:16px;"></div>
         <div style="font-size:.55rem;letter-spacing:.16em;color:#666;text-transform:uppercase;margin-bottom:8px;">── EMAIL ADDRESS ──</div>
@@ -700,16 +714,34 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
         <div style="font-size:.55rem;color:#555;letter-spacing:.06em;text-align:center;margin-top:8px;">By continuing you agree to IPNOTEC Terms & Privacy Policy</div>
         <div style="margin-top:14px;">
           <div class="expand-strip" id="exp-strip" onclick="toggleAbout()">
-            <div class="es-left"><div class="es-dot"></div><div class="es-lbl">WHAT IS IPNOTEC HOTSPOT? · READ MORE</div></div>
+            <div class="es-left"><div class="es-dot"></div><div class="es-lbl">WHAT IS IPNOTEC THOUGHT SPOT? · READ MORE</div></div>
             <div class="es-arr" id="es-arr">▸</div>
           </div>
           <div class="expand-body" id="exp-body">
             <div class="expand-inner">
               <div class="tline"><div class="t-prompt">&gt;</div><div class="t-text"><strong>YOUR PHONE IS THE ROUTER.</strong> Create a verified IPNOTEC_ SSID. No external hardware.</div></div>
+              <div class="tline"><div class="t-prompt">&gt;</div><div class="t-text">A Hotspot just shares signal. A <strong>Thought Spot organises the conversation</strong> happening on it — and writes it up for you.</div></div>
               <div class="tline"><div class="t-prompt">&gt;</div><div class="t-text">For <strong>rides · meetups · offices · events.</strong> Verified, text-only coordination.</div></div>
               <div class="tline"><div class="t-prompt">&gt;</div><div class="t-text"><strong>₹101 one-time.</strong> Lock your SSID permanently in the IPNOTEC Directory.</div></div>
-              <div class="tline"><div class="t-prompt">&gt;</div><div class="t-text">Every session recorded. <strong>Summary emailed</strong> to you from 101@ipnotec.com. Cache cleared.</div></div>
+              <div class="tline"><div class="t-prompt">&gt;</div><div class="t-text">Every session ends with an <strong>AI Summary</strong> — not just minutes, but what was actually discussed — emailed from 101@ipnotec.com. Cache cleared.</div></div>
               <div class="tline"><div class="t-prompt">&gt;</div><div class="t-text">No Gift? <strong>Someone can gift ₹101</strong> to you via QR. Collaboration over transaction.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="g12"></div>
+        <div>
+          <div class="expand-strip" id="howto-strip" onclick="toggleHowTo()">
+            <div class="es-left"><div class="es-dot"></div><div class="es-lbl">HOW TO USE THIS EMULATION</div></div>
+            <div class="es-arr" id="howto-arr">▸</div>
+          </div>
+          <div class="expand-body" id="howto-body">
+            <div class="expand-inner">
+              <div class="tline"><div class="t-prompt">1</div><div class="t-text">This is a <strong>clickable product emulation</strong>, not a working app. No real OTP, payment, or WiFi changes happen.</div></div>
+              <div class="tline"><div class="t-prompt">2</div><div class="t-text">Type any email and tap Authenticate to walk the OTP → SSID → ₹101 payment flow. All values shown auto-fill for the demo.</div></div>
+              <div class="tline"><div class="t-prompt">3</div><div class="t-text">On the SSID screen, the <strong>first availability check always shows "Taken"</strong> on purpose — to demo that flow — the second check succeeds.</div></div>
+              <div class="tline"><div class="t-prompt">4</div><div class="t-text">After verification, the session goes <strong>LIVE</strong> and 10 demo participants auto-join and start chatting so you can see the product fully populated.</div></div>
+              <div class="tline"><div class="t-prompt">5</div><div class="t-text">Open <strong>ADMIN PANEL</strong> (bottom nav) to send your own messages, toggle IPNOTEC Dancing Mode, or open the DD Display for a big-screen view.</div></div>
+              <div class="tline"><div class="t-prompt">6</div><div class="t-text">Tap <strong>⏹ END</strong> in Admin to end the session and see the AI-generated Summary, then "View in Inbox" to see the emailed version.</div></div>
             </div>
           </div>
         </div>
@@ -739,7 +771,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
         <div class="g16"></div>
         <div class="step-badge"><div class="badge-dot"></div>STEP 2 OF 3 · SETTINGS → SSID</div>
         <div class="screen-title">LOCK YOUR SSID</div>
-        <div class="screen-sub">Choose your IPNOTEC Hotspot name. <strong style="color:#4a7a4a;">Checked against the IPNOTEC Directory.</strong> ALPHANUMERIC + CAPITALS + _ only.</div>
+        <div class="screen-sub">Choose your IPNOTEC Thought Spot name. <strong style="color:#4a7a4a;">Checked against the IPNOTEC Directory.</strong> ALPHANUMERIC + CAPITALS + _ only.</div>
         <div class="sec-lbl">TYPE YOUR SSID NAME</div>
         <div class="ssid-input-row">
           <div class="ssid-prefix">IPNOTEC_</div>
@@ -790,7 +822,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
           <div style="font-size:.65rem;color:#4a9a4a;">✓</div>
         </div>
         <div class="amount-card">
-          <div style="font-size:.55rem;letter-spacing:.16em;color:#8a5a00;text-transform:uppercase;margin-bottom:8px;">IPNOTEC HOTSPOT · ONE-TIME SSID LOCK</div>
+          <div style="font-size:.55rem;letter-spacing:.16em;color:#8a5a00;text-transform:uppercase;margin-bottom:8px;">IPNOTEC THOUGHT SPOT · ONE-TIME SSID LOCK</div>
           <div class="amount-main">₹101</div>
           <div class="amount-cycle">ONE-TIME · PERMANENT SSID BOND</div>
         </div>
@@ -806,7 +838,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
           <div class="gift-qr">
             <svg viewBox="0 0 21 21" width="108" height="108" xmlns="http://www.w3.org/2000/svg"><rect width="21" height="21" fill="white"/><g fill="black"><rect x="0" y="0" width="7" height="7"/><rect x="1" y="1" width="5" height="5" fill="white"/><rect x="2" y="2" width="3" height="3"/><rect x="14" y="0" width="7" height="7"/><rect x="15" y="1" width="5" height="5" fill="white"/><rect x="16" y="2" width="3" height="3"/><rect x="0" y="14" width="7" height="7"/><rect x="1" y="15" width="5" height="5" fill="white"/><rect x="2" y="16" width="3" height="3"/><rect x="8" y="2" width="2" height="1"/><rect x="11" y="2" width="1" height="2"/><rect x="9" y="4" width="2" height="1"/><rect x="8" y="6" width="1" height="1"/><rect x="11" y="6" width="2" height="1"/><rect x="0" y="8" width="1" height="1"/><rect x="2" y="8" width="3" height="1"/><rect x="6" y="8" width="2" height="1"/><rect x="9" y="8" width="1" height="2"/><rect x="11" y="8" width="3" height="1"/><rect x="15" y="8" width="2" height="1"/><rect x="8" y="14" width="2" height="2"/><rect x="11" y="14" width="1" height="1"/><rect x="16" y="14" width="1" height="2"/><rect x="9" y="16" width="2" height="1"/><rect x="15" y="16" width="1" height="2"/><rect x="8" y="18" width="1" height="2"/><rect x="10" y="18" width="2" height="2"/></g></svg>
           </div>
-          <div class="gift-note">QR links to: upi://pay?pa=ipnotec@ybl&am=101&tn=IPNOTEC_HOTSPOT</div>
+          <div class="gift-note">QR links to: upi://pay?pa=ipnotec@ybl&am=101&tn=IPNOTEC_THOUGHTSPOT</div>
         </div>
         <button class="btn btn-o" id="btn-pay" onclick="startPayment()">▸ PAY ₹101 NOW</button>
         <div style="text-align:center;font-size:.45rem;color:#555;letter-spacing:.06em;margin-top:6px;">🔒 UPI ONLY · SECURE · INSTANT</div>
@@ -850,7 +882,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
         <div class="live-badge"><div class="live-badge-dot"></div>LIVE · BROADCASTING</div>
         <div class="broadcast-ring"><div class="broadcast-ico">📡</div></div>
         <div class="live-ssid-name" id="live-ssid-name">IPNOTEC_</div>
-        <div style="font-size:.55rem;color:#2a5a2a;letter-spacing:.08em;text-align:center;">VERIFIED IPNOTEC HOTSPOT · SESSION ACTIVE</div>
+        <div style="font-size:.55rem;color:#2a5a2a;letter-spacing:.08em;text-align:center;">VERIFIED IPNOTEC THOUGHT SPOT · SESSION ACTIVE</div>
       </div>
       <!-- Live stats -->
       <div class="live-stats">
@@ -895,7 +927,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
         <div class="mst"><div class="mst-num" id="ms-time" style="color:var(--g);text-shadow:0 0 8px var(--g);">00:00</div><div class="mst-lbl">SESSION</div></div>
       </div>
       <div class="id-card">
-        <div class="id-top"><div class="id-top-lbl">IPNOTEC CORP · VERIFIED HOTSPOT IDENTITY</div><div class="id-active-row"><div class="id-active-dot"></div><div class="id-active-txt">ACTIVE</div></div></div>
+        <div class="id-top"><div class="id-top-lbl">IPNOTEC CORP · VERIFIED THOUGHT SPOT IDENTITY</div><div class="id-active-row"><div class="id-active-dot"></div><div class="id-active-txt">ACTIVE</div></div></div>
         <div class="id-body">
           <div class="id-ssid-lbl-s">REGISTERED SSID</div>
           <div class="id-ssid-big" id="id-ssid">IPNOTEC_</div>
@@ -923,7 +955,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
       <!-- Metal strip: top 3 persona colors proportional to chats -->
       <div class="metal-strip" id="metal-strip"></div>
       <div class="summary-card" id="summary-card">
-        <div class="sum-hdr"><div class="sum-hdr-lbl">IPNOTEC HOTSPOT · SESSION RECORD</div></div>
+        <div class="sum-hdr"><div class="sum-hdr-lbl">IPNOTEC THOUGHT SPOT · SESSION RECORD</div></div>
         <div class="sum-row"><div class="sum-key">SSID</div><div class="sum-val g" id="sum-ssid">—</div></div>
         <div class="sum-row"><div class="sum-key">DURATION</div><div class="sum-val" id="sum-dur">—</div></div>
         <div class="sum-row"><div class="sum-key">CONNECTED USERS</div><div class="sum-val" id="sum-users">—</div></div>
@@ -1179,7 +1211,7 @@ function updateChrome(id){
   else if(id==='sc-3'){pb.style.display='flex';setP('done','done','active');step.textContent='STEP 3/3';back.style.display='block';}
   else if(id==='sc-4'){pb.style.display='flex';setP('done','done','active');step.textContent='VERIFY';}
   if(['sc-5','sc-6','sc-7','sc-8','sc-9'].includes(id)){
-    live.classList.add('vis');nav.classList.add('vis');bdg.classList.add('live');bp1.textContent='HOTSPOT · LIVE';bp1.classList.add('live');bp2.textContent='DATA · ACTIVE';
+    live.classList.add('vis');nav.classList.add('vis');bdg.classList.add('live');bp1.textContent='THOUGHT SPOT · LIVE';bp1.classList.add('live');bp2.textContent='DATA · ACTIVE';
     pb.style.display='flex';setP('done','done','done');
   }
   ['home','admin','live','dd'].forEach(k=>document.getElementById('ni-'+k)?.classList.remove('on'));
@@ -1200,6 +1232,7 @@ function navTo(tab){
 /* ── SC-0 LANDING ── */
 function onEmailInput(el){S.email=el.value.trim();document.getElementById('btn-send-otp').disabled=!S.email.includes('@')||!S.email.includes('.');}
 function toggleAbout(){document.getElementById('exp-strip').classList.toggle('open');document.getElementById('exp-body').classList.toggle('open');}
+function toggleHowTo(){document.getElementById('howto-strip').classList.toggle('open');document.getElementById('howto-body').classList.toggle('open');}
 
 /* ── SC-1 OTP ── */
 function startOTP(){
@@ -1610,7 +1643,7 @@ function buildInbox(){
   const latest=document.getElementById('signal-latest');latest.innerHTML='';
   const logWrap=document.getElementById('signal-log');logWrap.innerHTML='';
   const sum=S.lastSummary;const domColor=sum.top3[0]?COLORS[sum.top3[0].colorIdx].hex:'#39FF14';
-  const subj='IPNOTEC_HOTSPOT : '+nowISO()+' : '+nowTime()+' : BENGALURU';
+  const subj='IPNOTEC_THOUGHTSPOT : '+nowISO()+' : '+nowTime()+' : BENGALURU';
 
   // Persona strip for latest
   let stripHTML='<div class="sig-frame">';
